@@ -1,11 +1,11 @@
 {
-  "name": "react-native-map-link",
-  "version": "2.7.27",
+  "name": "greact-native-map-link",
+  "version": "2.8.0",
   "description": "Open the map app of the user's choice with a specific location",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/includable/react-native-map-link.git"
+    "url": "git+https://github.com/groovetch/greact-native-map-link.git"
   },
   "scripts": {
     "lint": "eslint src --max-warnings=0 && eslint tests --max-warnings=0",
@@ -21,12 +21,7 @@
     "ios",
     "android"
   ],
-  "author": "Thomas Schoffelen <thomas@includable.com> (https://includable.com/)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/includable/react-native-map-link/issues"
-  },
-  "homepage": "https://github.com/includable/react-native-map-link#readme",
   "dependencies": {
     "prop-types": "^15.7.2",
     "react-native-modal": "^10.0.0"

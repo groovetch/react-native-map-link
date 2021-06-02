@@ -90,19 +90,30 @@ export async function showLocation(options) {
       break;
     case 'google-maps':
       // Always using universal URL instead of URI scheme since the latter doesn't support all parameters (#155)
-      url = 'https://www.google.com/maps/dir/?api=1';
       if (useSourceDestiny) {
+        url = 'https://www.google.com/maps/dir/?api=1';
         url += `&origin=${sourceLatLng}`;
-      }
-      if (!options.googleForceLatLon && title) {
-        url += `&destination=${encodedTitle}`;
-      } else {
-        url += `&destination=${latlng}`;
-      }
+        if (!options.googleForceLatLon && title) {
+          url += `&destination=${encodedTitle}`;
+        } else {
+          url += `&destination=${latlng}`;
+        }
 
-      url += options.googlePlaceId
-        ? `&destination_place_id=${options.googlePlaceId}`
-        : '';
+        url += options.googlePlaceId
+          ? `&destination_place_id=${options.googlePlaceId}`
+          : '';
+      } else {
+        url = 'https://www.google.com/maps/search/?api=1';
+        if (!options.googleForceLatLon && title) {
+          url += `&query=${encodedTitle}`;
+        } else {
+          url += `&query=${latlng}`;
+        }
+
+        url += options.googlePlaceId
+          ? `&query_place_id=${options.googlePlaceId}`
+          : '';
+      }
       break;
     case 'citymapper':
       url = `${prefixes.citymapper}directions?endcoord=${latlng}`;
